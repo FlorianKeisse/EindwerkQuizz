@@ -15,7 +15,7 @@ public class Room {
     private List<User> users;
 
     @OneToMany
-    private List<QuizQuestion> questions;
+    private List<Question> questions;
 
     public List<User> getUsers() {
         return users;
@@ -41,11 +41,11 @@ public class Room {
         this.users = users;
     }
 
-    public List<QuizQuestion> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<QuizQuestion> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 }

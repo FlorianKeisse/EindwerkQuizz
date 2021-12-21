@@ -1,16 +1,16 @@
 package com.keisse.eindwerkquiz.services;
 
-import com.keisse.eindwerkquiz.models.QuizQuestion;
+import com.keisse.eindwerkquiz.models.Question;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface QuizQuestionService {
-    List<QuizQuestion> findAll();
+    List<Question> findAll();
 
-    void save(QuizQuestion quizQuestion);
+    void save(Question quizQuestion);
 
-    Optional<QuizQuestion> findById(Long id);
+    Optional<Question> findById(Long id);
 
     void deleteById(Long id);
 }

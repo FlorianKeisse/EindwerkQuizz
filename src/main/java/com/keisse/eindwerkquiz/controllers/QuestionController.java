@@ -1,6 +1,6 @@
 package com.keisse.eindwerkquiz.controllers;
 
-import com.keisse.eindwerkquiz.models.QuizQuestion;
+import com.keisse.eindwerkquiz.models.Question;
 import com.keisse.eindwerkquiz.models.Room;
 import com.keisse.eindwerkquiz.services.QuizQuestionService;
 import com.keisse.eindwerkquiz.services.RoomService;
@@ -32,20 +32,23 @@ public class QuestionController {
         Long id = (Long) session.getAttribute("roomId");
         Room room = roomService.findById(id).get();
 
-        List<QuizQuestion> quizQuestionList = new ArrayList<>();
+        List<Question> questionList = new ArrayList<>();
 
-        QuizQuestion quizQuestions = new QuizQuestion();
+        Question question = new Question();
 
-        quizQuestions.setQuestion("How big is the mount everest?");
+        question.setQuestion("How big is the mount everest?");
 
-        quizQuestions.setAnswer1("very big");
-        quizQuestions.setAnswer2("very small");
-        quizQuestions.setAnswer3("very thicc");
-        quizQuestions.setAnswer4("very smoll");
+        question.setAnswer1("very big");
+        question.setAnswer2("very small");
+        question.setAnswer3("very thicc");
+        question.setAnswer4("very smoll");
 
-        quizQuestions.setCorrectAnswer(quizQuestions.getAnswer3());
-        quizQuestionService.save(quizQuestions);
-        room.setQuestions(quizQuestionList);
+        questionList.add(question);
+
+        question.setCorrectAnswer(question.getAnswer3());
+        quizQuestionService.save(question);
+
+        room.setQuestions(questionList);
         model.addAttribute("room",room);
         model.addAttribute("questions",room.getQuestions());
 

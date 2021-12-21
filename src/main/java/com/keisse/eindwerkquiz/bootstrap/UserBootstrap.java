@@ -1,8 +1,6 @@
 package com.keisse.eindwerkquiz.bootstrap;
 
-import com.keisse.eindwerkquiz.models.QuizQuestion;
-import com.keisse.eindwerkquiz.models.Room;
-import com.keisse.eindwerkquiz.models.User;
+import com.keisse.eindwerkquiz.models.Question;
 import com.keisse.eindwerkquiz.services.QuizQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -10,8 +8,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class UserBootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -25,7 +21,7 @@ public class UserBootstrap implements ApplicationListener<ContextRefreshedEvent>
 
 
         // QUIZ SET 1 //
-        QuizQuestion quizQuestion = new QuizQuestion();
+        Question quizQuestion = new Question();
 
         quizQuestion.setQuestion("How big is the mount everest?");
 
