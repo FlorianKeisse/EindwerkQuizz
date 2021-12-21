@@ -17,6 +17,8 @@ public interface UserService {
 
     User getUserByUserNameAndPassword(String userName, String passWord);
 
+    User getUserByUserName(String userName);
+
 //    User getTempUser(String userName);
 
 }

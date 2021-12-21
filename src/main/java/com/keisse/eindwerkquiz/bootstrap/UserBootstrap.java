@@ -3,6 +3,8 @@ package com.keisse.eindwerkquiz.bootstrap;
 import com.keisse.eindwerkquiz.models.QuizQuestion;
 import com.keisse.eindwerkquiz.models.Room;
 import com.keisse.eindwerkquiz.models.User;
+import com.keisse.eindwerkquiz.services.QuizQuestionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -13,6 +15,9 @@ import java.util.List;
 
 @Component
 public class UserBootstrap implements ApplicationListener<ContextRefreshedEvent> {
+
+    @Autowired
+    QuizQuestionService quizQuestionService;
 
     @Transactional
     @Override
@@ -30,6 +35,8 @@ public class UserBootstrap implements ApplicationListener<ContextRefreshedEvent>
         quizQuestion.setAnswer4("very smoll");
 
         quizQuestion.setCorrectAnswer(quizQuestion.getAnswer3());
+        quizQuestionService.save(quizQuestion);
+
 
       // END QUIZ SET 1 //
 

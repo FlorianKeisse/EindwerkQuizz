@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Playing Page</title>
-
+    <title>PlayingPage</title>
 </head>
-    <body>
-    <div class="list-item" th:each="questions:${questions}"> </div>
+<body>
+<!--<h1 th:text = "${session.username}" th:unless = "${session==null}"></h1>-->
+<div th:each="question:${questions}">
+
+
+    <p th:text="${question.question}"></p>
+    <p th:text="${questionStat.answer1}"></p>
+<!--    <p th:text="${quizquestionStat.answer2}"></p>-->
+<!--    <p th:text="${quizquestionStat.answer3}"></p>-->
+<!--    <p th:text="${quizquestionStat.answer4}"></p>-->
+
+
+<p> hallo </p>
+
+
+</div>
+
+
 </body>
 </html>
