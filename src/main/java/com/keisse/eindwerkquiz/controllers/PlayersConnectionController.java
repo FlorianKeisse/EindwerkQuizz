@@ -26,21 +26,6 @@ public class PlayersConnectionController {
     @Autowired
     private RoomService roomService;
 
-    @Autowired
-    private QuizQuestionService quizQuestionService;
-
-
-//    @GetMapping("/PlayingPage")
-//    public String quizPage(String userName, Model model,HttpSession session) { //todo: Aanpassen van Controller voor vragen af te printen
-//
-//        Long id = (Long) session.getAttribute("roomId");
-//        Room room = roomService.findById(id).get();
-//
-//        model.addAttribute("room",room);
-//        model.addAttribute("questions",room.getQuestions());
-//
-//        return "PlayingPage";
-//    }
 
     @GetMapping("playerconnections")
     public String playerConnections(@RequestParam("Username") String userName, Model model, HttpSession session) {
@@ -49,14 +34,12 @@ public class PlayersConnectionController {
         Room room = roomService.findById(id).get();
         List<User> roomList = room.getUsers();
 
-
         User user = userService.getUserByUserName(userName);
 
         if(user==null){
             user=new User();
             user.setUserName(userName);
             userService.saveUser(user);
-
         }
 
         if (!roomList.contains(user)) {
@@ -64,8 +47,6 @@ public class PlayersConnectionController {
             user.setRoom(room);
             userService.saveUser(user);
         }
-
-
 
         model.addAttribute("room", room);
         model.addAttribute("users", room.getUsers());
@@ -86,6 +67,7 @@ public class PlayersConnectionController {
         session.setAttribute("roomId", roomId);
         System.out.println(room.getId());
         roomService.save(room);
+
         return "TempUsername";
 
     }

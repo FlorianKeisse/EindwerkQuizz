@@ -2,9 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlayingPage</title>
 </head>
 <body>
+
+
 <!--<h1 th:text = "${session.username}" th:unless = "${session==null}"></h1>-->
 <div th:each="question:${questions}">
 
@@ -18,10 +21,83 @@
 <!--    <p th:text="${quizquestionStat.answer3}"></p>-->
 <!--    <p th:text="${quizquestionStat.answer4}"></p>-->
 
+    <div class="Answers">
+        <div class="horizon-btn-group">
+            <button>Apple</button>
+            <button>Samsung</button>
+        </div>
+        <div class="horizon-btn-group">
+            <button>Apple</button>
+            <button>Samsung</button>
+
+        </div>
+        </div>
 
 
 </div>
 
 
 </body>
+<style>
+
+    .Answers{
+        position:relative;
+        top:300px;
+    }
+
+    .horizon-btn-group button {
+        background-color: #04AA6D; /* Green background */
+        border: 1px solid green; /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+        width: 50%;
+        height: 200px;
+
+    }
+
+    .horizon-btn-group button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+    }
+
+    /* Clear floats (clearfix hack) */
+    .horizon-btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Add a background color on hover */
+    .horizon-btn-group button:hover {
+        background-color: #3e8e41;
+    }
+
+    .horizon-btn-group button {
+        background-color: #04AA6D; /* Green background */
+        border: 1px solid green; /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+    }
+
+    .horizon-btn-group button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+    }
+
+    /* Clear floats (clearfix hack) */
+    .horizon-btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Add a background color on hover */
+    .horizon-btn-group button:hover {
+        background-color: #3e8e41;
+    }
+
+</style>
 </html>
+
