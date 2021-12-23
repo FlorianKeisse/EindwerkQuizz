@@ -2,8 +2,10 @@ package com.keisse.eindwerkquiz.controllers;
 
 import com.keisse.eindwerkquiz.models.Room;
 import com.keisse.eindwerkquiz.models.User;
+import com.keisse.eindwerkquiz.models.UserScore;
 import com.keisse.eindwerkquiz.services.QuizQuestionService;
 import com.keisse.eindwerkquiz.services.RoomService;
+import com.keisse.eindwerkquiz.services.UserScoreService;
 import com.keisse.eindwerkquiz.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class PlayersConnectionController {
 
     @Autowired
     private RoomService roomService;
+
+    @Autowired
+    private UserScoreService userScoreService;
 
 
     @GetMapping("playerconnections")
@@ -48,11 +53,16 @@ public class PlayersConnectionController {
             userService.saveUser(user);
         }
 
+//        if (user.isTemp()==true){
+//            roomList.remove(user);
+//        }
+
         model.addAttribute("room", room);
         model.addAttribute("users", room.getUsers());
         System.out.println(roomList);
         return "playerconnections";
     }
+
 
     @GetMapping("/TempUsername")
     public String tempUsername(@RequestParam("roomId") long roomId, Model model, HttpSession session) {
@@ -77,5 +87,11 @@ public class PlayersConnectionController {
 
         return "";
     }
+
+//    @GetMapping("/PunishmentGame")
+//    public String getAnswer(@RequestParam("Answer") String answer, Model model, HttpSession session) {
+//        session.setAttribute("Answer", answer);
+//        return "PunishmentPage";
+//    }
 
 }

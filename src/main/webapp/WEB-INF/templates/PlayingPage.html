@@ -21,26 +21,30 @@
   </div>
 
 
-    <div class="Answers">
-        <div class="horizon-btn-group">
-<!--            <form  th:action = "@{/question.answer1}">-->
-            <button type="submit" class = "button-1"><p th:text="${question.answer1}"></p></button>
-<!--            </form>-->
-<!--            <form  th:action = "@{/question.answer2}">-->
-            <button type="submit" class = "button-2"> <p th:text="${question.answer2}"></p></button>
-<!--            </form>-->
+    <div class="Answers" >
+<!--        <form action="/PunishmentPage" method="get" id="answer1">-->
+<!--            <label for="fname">First name:</label>-->
+<!--            <input type="text" id="fname" name="fname"><br><br>-->
+<!--            <label for="lname">Last name:</label>-->
+<!--            <input type="text" id="lname" name="lname">-->
+<!--        </form>-->
+        <div class="horizon-btn-group" >
+            <a href="/PunishmentPage" class="button-1"><p th:text="${question.answer1}"> </p></a>
+            <a href="/PunishmentPage" class="button-2"><p th:text="${question.answer2}"> </p></a>
+<!--            <button type="submit" class = "button-1"> <p th:text="${question.answer1}"> </p></button>-->
+            <!--            <button type="submit" class = "button-2"> <p th:text="${question.answer2}"> </p></button>-->
         </div>
-        <div class="horizon-btn-group">
-<!--            <form  th:action = "@{/question.answer3}">-->
-            <button type="submit" class = "button-3"> <p th:text="${question.answer3}"></p></button>
-<!--            </form>-->
-<!--            <form  th:action = "@{/question.answer4}">-->
-            <button type="submit" class = "button-4"><p th:text="${question.answer4}"></p></button>
-<!--            </form>-->
 
+        <div class="horizon-btn-group">
+        <a href="/PunishmentPage" class="button-3"><p th:text="${question.answer3}"> </p></a>
+            <a href="/PunishmentPage" class="button-4"><p th:text="${question.answer4}"> </p></a>
+
+<!--            <button type="submit" class = "button-3"> <p th:text="${question.answer3}"> </p></button>-->
+<!--            <button type="submit" class = "button-4"> <p th:text="${question.answer4}"> </p></button>-->
         </div>
+
     </div>
-
+<!--    class="horizon-btn-group"-->
 
 </div>
 
@@ -52,6 +56,18 @@
     body {
         background-image: url(https://github.com/FlorianKeisse/EindwerkQuizz/blob/main/src/main/resources/img/background.png?raw=true);
 
+    }
+
+    a{
+        /*border: 1px solid grey; !* Grey border *!*/
+        /*color: white; !* White text *!*/
+        /*padding: 10px 24px; !* Some padding *!*/
+        /*cursor: pointer; !* Pointer/hand icon *!*/
+        /*float: left; !* Float the buttons side by side *!*/
+        /*width: 50%;*/
+        /*height: 200px;*/
+        /*font-size: 25px;*/
+        /*!*position: absolute;*!*/
     }
 
     P { text-align: center;
@@ -82,6 +98,7 @@
         position:relative;
         top:220px;
         font-size: 30px;
+
     }
 
     .button-1{
@@ -98,7 +115,7 @@
     }
 
     .horizon-btn-group button {
-        border: 1px solid grey; /* Green border */
+        border: 1px solid grey; /* Grey border */
         color: white; /* White text */
         padding: 10px 24px; /* Some padding */
         cursor: pointer; /* Pointer/hand icon */
@@ -114,7 +131,7 @@
     }
 
     /* Clear floats (clearfix hack) */
-    .horizon-btn-group:after {
+    .horizon-btn-group  :after {
         content: "";
         clear: both;
         display: table;
