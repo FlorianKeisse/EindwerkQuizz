@@ -1,0 +1,12 @@
+Q: How big is Mount Fuji?
+
+A1: Very bigg
+
+A2: Very Smoll
+
+A3: Very thicc
+
+A4: Very chick
+
+CorrectAnswer: A1
+

@@ -1,14 +1,20 @@
 package com.keisse.eindwerkquiz.controllers;
 
+import com.keisse.eindwerkquiz.models.Question;
+import com.keisse.eindwerkquiz.models.Room;
+import com.keisse.eindwerkquiz.services.QuizQuestionService;
+import com.keisse.eindwerkquiz.services.RoomService;
 import com.keisse.eindwerkquiz.services.UserScoreService;
 import com.keisse.eindwerkquiz.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 public class PunishmentController {
@@ -16,9 +22,52 @@ public class PunishmentController {
  @Autowired
  private UserScoreService userService;
 
- @GetMapping("/PunishmentPage")
- public String redirect(Model model) {
+ @Autowired
+ private QuizQuestionService quizQuestionService;
 
-     return "PunishmentPage";
+ @Autowired
+ private RoomService roomService;
+
+
+  @GetMapping("/PunishmentPage")
+  public String getPage(@RequestParam String AnswerId,HttpSession session){
+   Question question = (Question) session.getAttribute("questions");
+
+   if (question.getCorrectAnswer().equals("AnswerId")){ //todo: aanpassen zodat answerId's gelijk zijn aan antwoorden
+
+    return "/correctPage";
+   }
+//   question.getCorrectAnswer();
+   return "/PunishmentPage";
+  }
+
+  @GetMapping("/PunishmentPage/{answerId}")
+ public String getRoom(long questionId) {
+
+//   System.out.println(answerId);
+//   Question question;
+//   if (quizQuestionService.findById(questionId).isPresent()) {
+//    question = quizQuestionService.findById(questionId).get();
+//   }
+//   session.setAttribute("questionId",questionId);
+//   quizQuestionService.save(question);
+
+  return "";
  }
+
+//  @GetMapping("/PunishmentPage")
+// public String tempUsername(@RequestParam("answerId") long answerId, Model model, HttpSession session) {
+//
+//  Question question;
+//  if (quizQuestionService.findById(answerId).isPresent()) {
+//   question = quizQuestionService.findById(answerId).get();
+//  }
+//
+//  session.setAttribute("answerId", answerId);
+//
+//  quizQuestionService.save(question);
+//
+//  return "PunishmentPage";
+//  }
+
 }
