@@ -2,6 +2,7 @@ package com.keisse.eindwerkquiz.controllers;
 
 import com.keisse.eindwerkquiz.models.Question;
 import com.keisse.eindwerkquiz.models.Room;
+import com.keisse.eindwerkquiz.models.UserScore;
 import com.keisse.eindwerkquiz.services.QuizQuestionService;
 import com.keisse.eindwerkquiz.services.RoomService;
 import com.keisse.eindwerkquiz.services.UserScoreService;
@@ -29,16 +30,22 @@ public class PunishmentController {
  private RoomService roomService;
 
 
+
   @GetMapping("/PunishmentPage")
   public String getPage(@RequestParam String AnswerId,HttpSession session){
+//   UserScore userScore = session.getAttribute("user");
    Question question = (Question) session.getAttribute("questions");
+   System.out.println(AnswerId);
+   System.out.println(question.getCorrectAnswer());
+   System.out.println(question.getCorrectAnswer().equals(AnswerId));
+   if (question.getCorrectAnswer().equals(AnswerId)){ //todo: aanpassen zodat answerId's gelijk zijn aan antwoorden
 
-   if (question.getCorrectAnswer().equals("AnswerId")){ //todo: aanpassen zodat answerId's gelijk zijn aan antwoorden
-
-    return "/correctPage";
+    return "redirect:correctPage";
+   }else{
+    return "/PunishmentPage";
    }
+
 //   question.getCorrectAnswer();
-   return "/PunishmentPage";
   }
 
   @GetMapping("/PunishmentPage/{answerId}")
@@ -55,6 +62,12 @@ public class PunishmentController {
   return "";
  }
 
+ @GetMapping("/correctPage")
+ public String redirect(Model model) {
+
+
+  return "correctPage";
+ }
 //  @GetMapping("/PunishmentPage")
 // public String tempUsername(@RequestParam("answerId") long answerId, Model model, HttpSession session) {
 //

@@ -88,10 +88,4 @@ public class PlayersConnectionController {
         return "";
     }
 
-//    @GetMapping("/PunishmentGame")
-//    public String getAnswer(@RequestParam("Answer") String answer, Model model, HttpSession session) {
-//        session.setAttribute("Answer", answer);
-//        return "PunishmentPage";
-//    }
-
 }

@@ -21,6 +21,9 @@ public class User {
     @ManyToOne
     private Room room;
 
+    @OneToOne
+    private UserScore userScore;
+
     public User() {
 
     }
@@ -63,6 +66,14 @@ public class User {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public UserScore getUserScore() {
+        return userScore;
+    }
+
+    public void setUserScore(UserScore userScore) {
+        this.userScore = userScore;
     }
 
     public boolean isTemp() {

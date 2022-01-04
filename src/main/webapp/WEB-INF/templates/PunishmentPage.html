@@ -6,17 +6,94 @@
     <title>GameOnMate</title>
 </head>
 <body>
-<p>Right Or Wrong?</p>
+<p>Wrong answer but it was a nice try</p>
 
+<div th:each="userScore:${userScore}"></div>
+<!--<p th:text="${userScore.punishment}"></p>-->
+<div class="grid"></div>
+<div class="lines"></div>
+
+
+<div class="wrapper">
+<a class="button" href="/PlayingPage" role="button">Next</a>
+</div>
 </body>
 </html>
 <style>
 
     body{
-        background-color: #d980ff;
+        background-color: #9370DB;
         color: white;
         font-size: 45px;
         text-align: center;
 
     }
+
+    .wrapper {
+        height:20px;
+        width:100px;
+        margin: -20px -50px;
+        position:relative;
+        top:50%;
+        left:50%;
+    }
+
+
+    a {
+        color: #448bff;
+        text-decoration: none;
+        background-color: transparent
+    }
+
+    a:hover {
+        color: #005ef7;
+        text-decoration: underline
+    }
+
+    a:not([href]):not([tabindex]) {
+        color: inherit;
+        text-decoration: none
+    }
+
+    a:not([href]):not([tabindex]):focus,
+    a:not([href]):not([tabindex]):hover {
+        color: inherit;
+        text-decoration: none
+    }
+
+    a:not([href]):not([tabindex]):focus {
+        outline: 0
+    }
+
+    a {
+        height: 10vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+
+
+    a.button {
+        height: 50px;
+        width: 150px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(to right top, #FB0712, #124FEB);
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #fff;
+        transition: all 0.2s;
+    }
+
+    a.button:hover {
+        background-image: linear-gradient(to right top, #0717FB, #F90A2F)
+    }
+
+
+
+
 </style>
