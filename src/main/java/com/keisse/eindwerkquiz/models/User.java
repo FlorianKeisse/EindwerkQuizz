@@ -22,7 +22,7 @@ public class User {
     private Room room;
 
     @OneToOne
-    private UserScore userScore;
+    private Punishment punishment;
 
     public User() {
 
@@ -68,12 +68,12 @@ public class User {
         this.room = room;
     }
 
-    public UserScore getUserScore() {
-        return userScore;
+    public Punishment getPunishment() {
+        return punishment;
     }
 
-    public void setUserScore(UserScore userScore) {
-        this.userScore = userScore;
+    public void setPunishment(Punishment punishment) {
+        this.punishment = punishment;
     }
 
     public boolean isTemp() {

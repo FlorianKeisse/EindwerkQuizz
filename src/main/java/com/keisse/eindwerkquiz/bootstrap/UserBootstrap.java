@@ -1,9 +1,9 @@
 package com.keisse.eindwerkquiz.bootstrap;
 
+import com.keisse.eindwerkquiz.models.Punishment;
 import com.keisse.eindwerkquiz.models.Question;
-import com.keisse.eindwerkquiz.models.UserScore;
 import com.keisse.eindwerkquiz.services.QuizQuestionService;
-import com.keisse.eindwerkquiz.services.UserScoreService;
+import com.keisse.eindwerkquiz.services.PunishmentService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -19,7 +19,7 @@ public class UserBootstrap implements ApplicationListener<ContextRefreshedEvent>
     QuizQuestionService quizQuestionService;
 
     @Autowired
-    UserScoreService userScoreService;
+    PunishmentService punishmentService;
 
     @SneakyThrows
     @Transactional
@@ -27,50 +27,50 @@ public class UserBootstrap implements ApplicationListener<ContextRefreshedEvent>
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
 
-        Question question = new Question();
+//        Question question = new Question();
+//
+//        question.setQuestion("In which book does 'Sancho Panza' appear?");
+//        question.setAnswer3("The Diary of a Chambermaid");
+//        question.setAnswer2("Foucault's Pendulum");
+//        question.setAnswer1("Adventures of Huckleberry Finn");
+//        question.setAnswer4("Don Quixote");
+//        question.setCorrectAnswer("4");
+//
+//        quizQuestionService.save(question);
+//
+//
+//        Question question2 = new Question();
+//
+//        question2.setQuestion("In which continent would you find the Ob river?");
+//        question2.setAnswer1("Asia");
+//        question2.setAnswer2("Europe");
+//        question2.setAnswer3("Africa");
+//        question2.setAnswer4("Autralasia");
+//        question2.setCorrectAnswer("1");
+//
+//        quizQuestionService.save(question2);
+//
+//        Question question3 = new Question();
+//
+//        question3.setQuestion("Which actor played the role of Luke Skywalker in Star Wars?");
+//        question3.setAnswer1("Harrison Ford");
+//        question3.setAnswer2("Ewan McGregor");
+//        question3.setAnswer3("Mark Hamill");
+//        question3.setAnswer4("James Earl Jones");
+//        question3.setCorrectAnswer("3");
+//
+//        quizQuestionService.save(question3);
 
-        question.setQuestion("how big is mt Fuji?");
-        question.setAnswer1("very big");
-        question.setAnswer2("3.776m");
-        question.setAnswer3("2.678m");
-        question.setAnswer4("4.443m");
-        question.setCorrectAnswer("2");
+//        Punishment punishment = new Punishment();
+////
+//        punishment.setPunishmentTask("Seems you got lucky this time. No sips for you. (unless you want)");
+//        punishment.setPunishment1("Drink 1 sip of your liqour");
+//        punishment.setPunishment2("Depending on what drink you have, down it. otherwise take 3 sips.");
+//        punishment.setPunishment3("Drink 3 sips wazaaaaaaaaa");
+//        punishment.setPunishment4("Seems you got lucky this time. No sips for you. (unless you want)");
+//        punishment.setPunishment5("Seems you got even more lucky, let another person drink 1-2 sips");
 
-        quizQuestionService.save(question);
-
-
-        Question question2 = new Question();
-
-        question2.setQuestion("how big is mt Hotaka");
-        question2.setAnswer1("very big");
-        question2.setAnswer2("3.190m");
-        question2.setAnswer3("3.668m");
-        question2.setAnswer4("3.891m");
-        question2.setCorrectAnswer("1");
-
-        quizQuestionService.save(question2);
-
-        Question question3 = new Question();
-
-        question3.setQuestion("how big is mt Kita?");
-        question3.setAnswer1("1.234m");
-        question3.setAnswer2("3.193m");
-        question3.setAnswer3("3.133m");
-        question3.setAnswer4("4.666m");
-        question3.setCorrectAnswer("2");
-
-        quizQuestionService.save(question3);
-
-        UserScore userScore = new UserScore();
-
-        userScore.setPunishment("Drink 2 sips of your liquor");
-        userScore.setPunishment1("Drink 1 sip of your liqour");
-        userScore.setPunishment2("Depending on what drink you have, down it. otherwise take 3 sips.");
-        userScore.setPunishment3("Drink 3 sips wazaaaaaaaaa");
-        userScore.setPunishment4("Seems you got lucky this time. No sips for you. (unless you want)");
-        userScore.setPunishment5("Seems you got even more lucky, let another person drink 1-2 sips");
-
-        userScoreService.save(userScore);
+//        punishmentService.save(punishment);
     }
 
     // END QUIZ SET 1 //

@@ -2,10 +2,8 @@ package com.keisse.eindwerkquiz.controllers;
 
 import com.keisse.eindwerkquiz.models.Room;
 import com.keisse.eindwerkquiz.models.User;
-import com.keisse.eindwerkquiz.models.UserScore;
-import com.keisse.eindwerkquiz.services.QuizQuestionService;
 import com.keisse.eindwerkquiz.services.RoomService;
-import com.keisse.eindwerkquiz.services.UserScoreService;
+import com.keisse.eindwerkquiz.services.PunishmentService;
 import com.keisse.eindwerkquiz.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,12 +27,14 @@ public class PlayersConnectionController {
     private RoomService roomService;
 
     @Autowired
-    private UserScoreService userScoreService;
+    private PunishmentService punishmentService;
 
 
     @GetMapping("playerconnections")
     public String playerConnections(@RequestParam("Username") String userName, Model model, HttpSession session) {
         session.setAttribute("username", userName);
+        Integer points = 0;
+        session.setAttribute("userpoints",points);
         Long id = (Long) session.getAttribute("roomId");
         Room room = roomService.findById(id).get();
         List<User> roomList = room.getUsers();

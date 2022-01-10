@@ -6,7 +6,16 @@
     <title>GameOnMate</title>
 </head>
 <body>
-<p>Correct! you're a wiseguy ey!</p>
+
+<div class="title">
+<h1>Correct! you're a wiseguy ey!</h1>
+</div>
+
+
+<div class="points">
+    <h1 th:text="${session.userpoints}"></h1>
+</div>
+
 
 <div class="wrapper">
     <a class="button" href="/PlayingPage" role="button">Next</a>
@@ -19,10 +28,51 @@
     body{
         background-color: #9370DB;
         color: white;
-        font-size: 45px;
+        font-size: 35px;
         text-align: center;
 
     }
+
+    .points h1 {
+        position:relative; font-size:20px; font-weight:700;  letter-spacing:0px; text-transform:uppercase; width:150px; text-align:center; margin:auto; white-space:nowrap; border:2px solid #222;padding:5px 11px 3px 11px;
+    }
+    .points h1:before, .points h1:after {
+        background-color: #c50000;
+        position:absolute;
+        content: '';
+        height: 7px;
+
+        width: 7px; border-radius:50%;
+        bottom: 12px;
+    }
+    .points h1:before {
+        left:-20px;
+    }
+    .points h1:after {
+        right:-20px;
+    }
+
+    .title h1 {
+        text-align: center;
+        font-size:60px; font-weight:300; color:#222; letter-spacing:1px;
+        text-transform: uppercase;
+        color: greenyellow;
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-rows: 27px 0;
+        grid-gap: 20px;
+        align-items: center;
+    }
+
+    .title h1:after,.title h1:before {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid #c50000;
+        border-top: 1px solid #c50000;
+        height: 5px;
+        background-color:#f8f8f8;
+    }
+
 
 
     .wrapper {
@@ -82,6 +132,9 @@
         text-transform: uppercase;
         color: #fff;
         transition: all 0.2s;
+        position: fixed;
+        bottom: 150px;
+
     }
 
     a.button:hover {
