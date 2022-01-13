@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 // TODO: not sure if this is the way to go
 @Controller
@@ -39,44 +42,13 @@ public class QuestionController {
 
         Question question;
 
-        if (session.getAttribute("questions")==null){
+        if (session.getAttribute("questions") == null) {
             question = quizQuestionService.findById(1L).get();
-        }else {
-          question =  (Question) session.getAttribute("questions");
-          question =  quizQuestionService.findById(question.getId()+1).get();
+        } else {
+            question = (Question) session.getAttribute("questions");
+            question = quizQuestionService.findById(question.getId() + 1).get();
         }
 
-
-
-//        BufferedReader br = new BufferedReader(new FileReader("src/main/resources/questions/questions.txt"));
-//        try {
-//            StringBuilder sb = new StringBuilder();
-//            String line = br.readLine();
-//
-//            while (line != null) {
-//                sb.append(line);
-//                sb.append("\n");
-//                line = br.readLine();
-//
-//                if (line.contains("Q")){
-//                    question.setQuestion(line);
-//                }else if (line.contains("A1")){
-//                    question.setAnswer1(line);
-//                }else if (line.contains("A2")){
-//                    question.setAnswer2(line);
-//                }else if (line.contains("A3")){
-//                    question.setAnswer3(line);
-//                }else if (line.contains("A4")){
-//                    question.setAnswer4(line);
-//                }else if (line.contains("CorrectAnswer: ")&&line.contains("A1")){
-//                    question.setCorrectAnswer(question.getAnswer1());
-//                }else if (line.contains("CorrectAnswer: ")&&line.contains("A2")){
-//                    question.setCorrectAnswer(question.getAnswer2());
-//                }else if (line.contains("CorrectAnswer: ")&&line.contains("A3")){
-//                    question.setCorrectAnswer(question.getAnswer3());
-//                }else if (line.contains("CorrectAnswer: ")&&line.contains("A4")){
-//                    question.setCorrectAnswer(question.getAnswer4());
-//                }
         questionList.add(question);
 //        quizQuestionService.save(question);
         room.setQuestions(questionList);
@@ -85,14 +57,44 @@ public class QuestionController {
         session.setAttribute("questions",question);
 
 
-//                session.setAttribute("quizId",question.);
+
         return "PlayingPage";
-//            }
-//            return sb.toString();
-//        } finally {
-//            br.close();
-//        }
     }
 
+    @GetMapping("/PlayingPage2")
+    public String quizPage2(String userName, Model model, HttpSession session) throws IOException {
+
+//        try{
+//            URL url = new URL("https://opentdb.com/api.php?amount=30&category=15&difficulty=medium&type=multiple");
+//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//            connection.setRequestMethod("GET");
+//            connection.connect();
+//
+//            StringBuilder informationString = new StringBuilder();
+//            Scanner scanner = new Scanner(url.openStream());
+//
+//            while (scanner.hasNext()){
+//                informationString.append(scanner.nextLine());
+//                System.out.println(informationString);
+//            }
+//            scanner.close();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+
+//        Long id = (Long) session.getAttribute("roomId");
+//        Room room = roomService.findById(id).get();
+//
+//        questionList.add(question);
+////        quizQuestionService.save(question);
+//        room.setQuestions(questionList);
+//        model.addAttribute("room", room);
+//        model.addAttribute("questions", room.getQuestions());
+//        session.setAttribute("questions",question);
+
+
+
+        return "PlayingPage";
+    }
 
 }

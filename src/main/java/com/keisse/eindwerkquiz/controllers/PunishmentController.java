@@ -43,7 +43,7 @@ public class PunishmentController {
     return "redirect:correctPage";
    }else {
     long min = 1L;
-    long max = 5L;
+    long max = 6L;
     long random = (long) (Math.random() * ((max - min) + 1) + min);
     Punishment punishment = punishmentService.findById(random).get();
 //    Punishment punishment = (Punishment) punishmentService.findAll();

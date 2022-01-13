@@ -1,20 +1,20 @@
 package com.keisse.eindwerkquiz.models;
 
+import lombok.SneakyThrows;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @ToString
 @Entity
+
 public class Question {
 
     @Id
     @GeneratedValue(strategy  = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String question;
 
     private String answer1;
